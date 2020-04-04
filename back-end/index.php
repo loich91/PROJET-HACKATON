@@ -30,7 +30,7 @@ array(
     
     echo "<form>";
     foreach($answer1 as $answer1 => $response) {
-        echo $response;
+        echo  "<p> $response </p>";
         foreach($answer2 as $answer2 => $response) {
             echo "<p> $response </p>";
         }
