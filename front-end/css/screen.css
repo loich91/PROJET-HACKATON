@@ -1,0 +1,39 @@
+header{
+    background-color: #888888;
+}
+.logo{
+
+margin-top:18px ;
+}
+.quizz{
+    color:white;
+
+}
+.titre1{
+    margin: 20px;
+}
+.lorem{
+    margin: 20px;
+    font-size: 20px;
+}
+.ask{
+    margin: 20px;
+    font-size: 20px;
+}
+.answer1{
+    margin: 20px;
+    font-size: 20px;
+}
+.answer2{
+    margin: 20px;
+    font-size: 20px;
+}
+.reponseJuste{
+    margin: 20px;
+    font-size: 20px;
+}
+.message{
+    margin: 20px;
+    font-size: 20px;
+    
+}
