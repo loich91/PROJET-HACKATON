@@ -8,12 +8,12 @@
 <body>
 <?php
 
-
+$ask;
 $answer1;
 $answer2;
 $response;
 
-array(
+$ask = array(
     "What does HTML stand for?" => array(
         '1' => "Home Tool Markup Language",
         '2' => "Hyperlinks and Text Markup Language",
