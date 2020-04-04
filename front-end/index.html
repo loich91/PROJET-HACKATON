@@ -1,24 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="./css/screen.css">
     <title>Document</title>
+    
 </head>
 <body>
     <header>
-
+        <div class="row">
+            <div class="col-12 col-lg-1">
+                <img src="./img/" alt="logo" title="logo" id='logo'>
+            </div>
+            <div class="col-12 col-lg-11">
+                <h1>quizz</h1>
+            </div>
+            <div class="col-12 col-lg-12">
+                <h1>titre</h1>
+            </div>
+            <div class="col-12 col-lg-12">
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. </br>
+                    Iusto animi qui, dicta eaque eligendi quos ullam velit iste fugit.</br>
+                    Blanditiis eligendi ducimus commodi ad doloribus tempore non dolorum officiis delectus.
+                </p>
+            </div>
+            <div class="col-12 col-lg-12">
+                <p>
+                    <p class='question' id='question'></p>
+                    <button class='answer1' id='answer1'></button>
+                    <button class='answer2' id='answer2'></button>
+                    <p class="reponseJuste" id="reponseJuste"></p>
+                    <p id="message"></p>
+                </p>
+            </div>
+        </div>
     </header>
     <main>
-        <div>
-            <p class='question' id='question'></p>
-            <button class='answer1' id='answer1'></button>
-            <button class='answer2' id='answer2'></button>
-            <p class="reponseJuste" id="reponseJuste"></p>
-            <p id="message"></p>
-        </div>
-        <div id="cursor">coucou</div>
     </main>
     <footer>
         <p class='answer2' id='answer2'></p>

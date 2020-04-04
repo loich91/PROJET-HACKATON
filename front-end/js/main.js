@@ -7,8 +7,11 @@ reponseU='';
 reponseJuste='b';
 message='';
 
+
 answer1.innerHTML="a)Avec de la javel ou du gel hydroalcoolique"
 answer2.innerHTML="b)Avec du savon et puis rincer à l’eau";
+
+fetch('http://tonserver.com/question');
 
 function sendResponse(response) {
     fetch('http://tonserver.com/response', {
