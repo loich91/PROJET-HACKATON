@@ -1,4 +1,4 @@
-question=document.getElementById("question").innerHTML="1.Avec quoi puis je désinfecter les pattes de mon chien après sa promenade ?"
+ask=document.getElementById("ask").innerHTML="1.Avec quoi puis je désinfecter les pattes de mon chien après sa promenade ?"
 answer1=document.getElementById("answer1");
 answer2=document.getElementById("answer2");
 messageElement = document.querySelector("#message");
