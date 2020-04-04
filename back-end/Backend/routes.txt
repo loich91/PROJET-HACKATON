@@ -1,0 +1,5 @@
+ANY /api/users[/{id}]
+ANY /api/translators[/{id}]
+ANY /api/partners[/{id}]
+ANY /api/missions[/]
+POST /token[/]

@@ -1,0 +1,16 @@
+{
+    "require": {
+        "slim/slim": "4.0.0",
+        "slim/psr7": "^0.5.0",
+        "selective/basepath": "^0.1.1",
+        "tuupola/slim-jwt-auth": "^3.4",
+        "monolog/monolog": "^2.0",
+        "tuupola/base62": "^2.0",
+        "sendinblue/api-v3-sdk": "^6.1.0",
+        "mailgun/mailgun-php": "^3.0",
+        "kriswallsmith/buzz": "^1.0",
+        "nyholm/psr7": "^1.2",
+        "php-http/guzzle6-adapter": "^2.0",
+        "mailjet/mailjet-apiv3-php": "^1.4"
+    }
+}

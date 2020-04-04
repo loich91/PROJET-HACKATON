@@ -1,0 +1,46 @@
+Univerbal
+
+Hello,
+
+Voici 2 versions pour le projet, test pour vos teste interne et demo pour montrer l'avancement du projet à votre client. Attention de ne jamais modifier
+
+Serveur de test
+
+Url: test.univerbal.s2019.siriusschool.be
+Api: apitest.univerbal.s2019.siriusschool.be
+
+SQL:
+PhpMyAdmin: https://phpmyadmin.hosting.ovh.net
+Server: vd108588-001.privatesql
+Port: 35333
+DB: sdbt_univerbal
+User: sut_univerbal
+Password: wVp2Wpgn7LVrFwfgzlrna3drPBWNf1
+
+FTP:
+Server: ftp.cluster026.hosting.ovh.net
+Protocol: SFTP
+Login: Normal
+User: siriusscxk-tuniverba
+Password: wVp2Wpgn7LVrFwfgzlrna3drPBWNf1
+
+
+Version de staging
+
+Url: demo.univerbal.s2019.siriusschool.be
+Url: apidemo.univerbal.s2019.siriusschool.be
+
+SQL:
+PhpMyAdmin: https://phpmyadmin.hosting.ovh.net
+Server: vd108588-001.privatesql
+Port: 35333
+DB: sdbs_univerbal
+User: sus_univerbal
+Password: f1VmOgtnwHP8ghEcqzcvk5QwULrUIf
+
+FTP:
+Server: ftp.cluster026.hosting.ovh.net
+Protocol: SFTP
+Login: Normal
+User: siriusscxk-suniverba
+Password: f1VmOgtnwHP8ghEcqzcvk5QwULrUIf

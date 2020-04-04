@@ -1,0 +1,184 @@
+<?php
+
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
+use Slim\Psr7\Response;
+
+class RightMiddleware
+{
+
+
+    /**
+     * Example middleware invokable class
+     *
+     * @param  ServerRequest  $request PSR-7 request
+     * @param  RequestHandler $handler PSR-15 request handler
+     *
+     * @return Response
+     */
+    public function __invoke(Request $request, RequestHandler $handler): Response
+    {
+
+        //on a pas d'autorisation par défaut
+        $accessGrant = false;
+
+        //Je récupère mon token décodé
+        $token = $request->getAttribute("token");
+
+        //Je récupère le nom de la route
+        $route     = $request->getAttribute('route');
+        $routeName = $route->getName();
+
+var_dump($request->getAttribute("token"));
+
+        $id = $route->getArgument('id');
+        $id_user = $token["user"]->user_id;
+        var_dump($id_user);
+        var_dump($token);
+
+        
+        
+        
+        //$id_roles = $token["data"]->id_roles;
+
+        //on a une autorisation (min) déclarée
+        if (isset($token["user"]) && $this->checkToken($token)) {
+
+            /*if( $id_roles == 1 ||
+               
+                ( ($request->getMethod() == 'GET' && isset($id) && $id_roles == 2 && in_array($routeName,["products","softwares","users"])) ||
+
+                ($request->getMethod() == 'GET' && !isset($id) && $id_roles == 2 && in_array($routeName,["products","softwares","users"])) ||
+                ($request->getMethod() == 'DELETE' && isset($id) && $id_roles == 2 && in_array($routeName,["products","softwares"])) ||
+                ($request->getMethod() == 'POST' && !isset($id) &&  $id_roles == 2 && in_array($routeName,["products","softwares"])) ||
+                ( ($request->getMethod() == 'PUT' || $request->getMethod() == 'PATCH') && isset($id) && $id_roles == 2 && in_array($routeName,["products","softwares"])))
+            )
+            {   
+                $accessGrant = true;
+            }*/
+            $accessGrant = true;
+            /*
+            //VOIR UNIQUEMENT SON PROFIL
+            if( ($routeName == "users" && $request->getMethod() == 'GET' && isset($id) && $id_roles == 2 && $id == $id_users) || $id_roles == 1 )
+            {
+                $accessGrant = true;
+            }
+            */
+        }
+
+
+
+
+
+        if ($accessGrant) {
+            $response = $handler->handle($request);
+            return $response;
+        } else {
+            $response = new Response();
+            $data = array();
+            $data['status'] = 'error';
+            $data['message'] = 'Authorisation refusée';
+            $payload = json_encode($data);
+
+            $response->getBody()->write($payload);
+            return $response
+                ->withHeader('Content-Type', '*')
+                ->withHeader('Access-Control-Allow-Origin', '*')
+                ->withHeader('Access-Control-Allow-Headers', '*')
+                ->withHeader('Access-Control-Allow-Methods', '*')
+                ->withStatus(200);
+        }
+    }
+
+
+    /** 
+     *    Add jti token in database.
+     *
+     *    Token must be registered in DataBase for user
+     *    Only one session per user at a time
+     *
+     *    @param $jti string Token ID 
+     *    @param $id_users int user who create token
+     *    @return bool Token is inserted in database
+     */
+    public static function addJti(string $jti, int $id_users): bool
+    {
+        $db = new MyPDO();
+        $sql = "SELECT id_users FROM tokens WHERE
+        id_users = :id_users";
+        $sth = $db->prepare($sql);
+        $sth->bindValue(":id_users", $id_users, PDO::PARAM_INT);
+        $sth->execute();
+
+        //have token entry
+        if ($sth && $sth->rowCount() > 0) {
+            $sql = "UPDATE tokens SET
+            jti = :jti
+            WHERE id_users = :id_users";
+            $sth = $db->prepare($sql);
+            $sth->bindValue(":id_users", $id_users, PDO::PARAM_INT);
+            $sth->bindValue(":jti", $jti, PDO::PARAM_STR);
+            $sth->execute();
+
+            if ($sth && $sth->rowCount() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        //DONT have token entry
+        else {
+            $sql = "INSERT INTO tokens SET
+            id_users = :id_users,
+            jti = :jti";
+            $sth = $db->prepare($sql);
+            $sth->bindValue(":id_users", $id_users, PDO::PARAM_INT);
+            $sth->bindValue(":jti", $jti, PDO::PARAM_STR);
+            $sth->execute();
+
+            if ($sth && $sth->rowCount() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+
+    /** 
+     *   Check if jti token is in database
+     *    
+     *   Token must be registered in DataBase for user
+     *    Only one session per user at a time
+     *
+     *    @param $token array Token generated by JWT
+     *    @return bool Token is right for user
+     */
+    private function checkToken(array $token): bool
+    {
+        //Est-ce que l'id du token et l'id de l'utilisateur
+        //est dans le token ?
+        if (!isset($token["user"]->user_id, $token["jti"])) {
+            return false;
+        }
+
+        //Est-ce que le token (postman) est enregistré en DB ?
+        $db = new MyPDO();
+        $sql = "SELECT id_users FROM users WHERE
+        id_users = :id_users";
+        $sth = $db->prepare($sql);
+        $sth->bindValue(":id_users", $token["user"]->user_id, PDO::PARAM_INT);
+        //$sth->bindValue(":jti",  $token["jti"], PDO::PARAM_STR);
+        $sth->execute();
+
+        //si mon token est en DB, je dis ok, true
+        //sinon je dit il ya un problème, false
+        if ($sth && $sth->rowCount() > 0) {
+            
+            return true;
+            
+        } else {
+            return false;
+        }
+    }
+}
