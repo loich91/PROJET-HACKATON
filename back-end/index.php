@@ -29,10 +29,10 @@ $ask = array(
     );
     
     echo "<form>";
-    foreach($answer1 as $answer1 => $response) {
+    foreach($ask as $response => $answer1) {
         echo  "<p> $response </p>";
-        foreach($answer2 as $answer2 => $response) {
-            echo "<p> $response </p>";
+        foreach($ask as $reponse => $answer2) {
+            echo "<input type\radio" name="=\"$ask\"> <p> $response</p><br/>";
         }
     }
     echo "</form>";
