@@ -17,6 +17,10 @@ margin-bottom: 18px;
 .titre1{
     margin: 20px;
 }
+.titre{
+   margin-top: 4rem;
+   font-size: 2rem;
+}
 .lorem{
     margin: 20px;
     font-size: 20px;
@@ -41,4 +45,11 @@ margin-bottom: 18px;
     margin: 20px;
     font-size: 20px;
     
+}
+.jeu{
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-shadow: 10px 5px 5px red;
+    margin: 1rem;
+
 }
