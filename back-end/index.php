@@ -8,7 +8,7 @@
 <body>
 <?php
 // indiqué le chemin de votre fichier JSON, il peut s'agir d'une URL
-$json = file_get_contents("bourse.json");
+$json = file_get_contents("response.json");
 
 var_dump(json_decode($json));
 ?>
