@@ -59,7 +59,5 @@ $rep=explode(",", $reponse[0]);
   }
 }
 
-$json = file_get_contents("response.json");
 
-var_dump(json_decode($json));
 ?>
