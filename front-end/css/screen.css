@@ -6,6 +6,7 @@ header{
 margin-top: 18px ;
 height: 40px;
 margin-bottom: 18px;
+margin-left: 18px;
 
 }
 .quizz{
@@ -18,17 +19,23 @@ margin-bottom: 18px;
     margin: 20px;
 }
 .titre{
-   margin-top: 4rem;
+   margin-top: 2rem;
    font-size: 2rem;
+}
+.accroche{
+    margin-top: 2rem;
+    font-size: 1.8rem;
+    margin-left: 18px;
 }
 .lorem{
     margin: 20px;
-    font-size: 20px;
+    font-size: 18px;
 }
 .ask{
     margin: 20px;
     font-size: 20px;
     background-color: rgba(173, 165, 165, 0.4) ;
+    padding-left: 5px;
 }
 .answer1{
     margin: 20px;
@@ -51,6 +58,11 @@ margin-bottom: 18px;
     border: 1px solid gray;
     border-radius: 5px;
     box-shadow: 5px 5px 5px red;
-    margin: 1rem;
+    margin: 2rem 1rem 1rem 1rem;
 
+}
+.virus{
+    max-width: 46%;
+    height: auto;
+    margin-left: 160px;
 }
