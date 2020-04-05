@@ -11,7 +11,17 @@
 // indiqué le chemin de votre fichier JSON, il peut s'agir d'une URL
 $json = file_get_contents("response.json");
 
-var_dump(json_decode($json));
+
+
+$parsed_json = json_decode($json);
+//var_dump(json_decode($json ));
+var_dump ($parsed_json);
+$ask = $parsed_json->{'quizz'}[0]->{'ask'};
+$answer1 = $parsed_json->{'quizz'}[0]->{'ask'};
+$answer2 = $parsed_json->{'quizz'}[0]->{'ask'};
+echo $ask ;
+echo $answer1;
+echo $answer2  ;
 ?>
 
 </body>
