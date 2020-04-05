@@ -11,8 +11,15 @@ message='';
 answer1.innerHTML="a)Avec de la javel ou du gel hydroalcoolique"
 answer2.innerHTML="b)Avec du savon et puis rincer à l’eau";
 
-fetch('http://http://127.0.0.1/back-end/index.php')
-    .then(response => response)
+
+
+
+fetch('http://127.0.0.1/back-end/index.php')
+    .then(ask => ask,
+        ask=document.getElementById("ask").innerHTML=ask
+        
+        )
+
 
 
 
