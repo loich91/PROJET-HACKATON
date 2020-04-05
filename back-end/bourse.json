@@ -7,33 +7,12 @@
         }
     },
     "cotation_bourse": [
-        {
-        "bourse": {
-        "heure": "15",
-        "minute": "04"
-        },
-        "total": {
-        "compagnie": "Total", 
-        "cotation": "43,15", 
-        "tendance": "+ 1,04"},    
-        "michelin": {
-        "compagnie": "Michelin", 
-        "cotation": "82,42", 
-        "tendance": "+ 1,20"}
-        },
-        {
-        "bourse": {
-        "heure": "09",
-        "minute": "04"
-        },
-        "yahoo": {
-        "compagnie": "Yahoo",
-        "cotation": "30,26", 
-        "tendance": "- 1,06"},
-        "google": {
-        "compagnie": "Google",
-        "cotation": "886,50", 
-        "tendance": "- 3,89"}
-        }
+        
+            {
+                "question1": {
+                "ask": "1.Avec quoi puis je désinfecter les pattes de mon chien après sa promenade ?", 
+                "answer1": "a)Avec de la javel ou du gel hydroalcoolique", 
+                "answer2": "b)Avec du savon et puis rincer à l’eau"}    
+                }
         ]
 }
