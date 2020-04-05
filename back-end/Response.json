@@ -1,12 +1,11 @@
 {
-    "response": {
-        "version": "0.9"
-        ,"termsofService": "https://www.numelion.com"
+    "CoronaQuiz": {
+        "version": "0.1"
         ,"features": {
-        "date": "24/09/2013"
+        "date": "05/04/2020"
         }
     },
-    "cotation_bourse": [
+    "Foire aux questions": [
         
             {
                 "question1": {
