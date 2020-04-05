@@ -1,0 +1,18 @@
+{
+    "response": {
+        "version": "0.9"
+        ,"termsofService": "https://www.numelion.com"
+        ,"features": {
+        "date": "24/09/2013"
+        }
+    },
+    "cotation_bourse": [
+        
+            {
+                "question1": {
+                "ask": "1.Avec quoi puis je désinfecter les pattes de mon chien après sa promenade ?", 
+                "answer1": "a)Avec de la javel ou du gel hydroalcoolique", 
+                "answer2": "b)Avec du savon et puis rincer à l’eau"}    
+                }
+        ]
+}
