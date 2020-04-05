@@ -32,7 +32,7 @@ $ask = array(
     foreach($ask as $response => $answer1) {
         echo  "<p> $response </p>";
         foreach($ask as $reponse => $answer2) {
-            echo "<input type\radio" name="=\"$ask\"> <p> $response</p><br/>";
+            echo "<input type\radio" name="=\"$ask\"> <p>$response</p><br/>";
         }
     }
     echo "</form>";
