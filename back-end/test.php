@@ -49,7 +49,7 @@ if ($nb < count($question))
 else
 {
 $rep=explode(",", $reponse[0]);
- echo "Terminér<br><br>";
+ echo "Terminer<br><br>";
   
   for ($i=0; $i <= count($reponse)+1; $i++)
   {   
