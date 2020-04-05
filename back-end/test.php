@@ -58,4 +58,8 @@ $rep=explode(",", $reponse[0]);
     echo "A la question " . $note . ": <font color=\"FF0000\"> " . $laqueston[0] . "</font><br> Vous avez répondu  " . $laqueston[$rep[$i]] . "<br> Reponse :"  . $reponseq[$i] . "<br><br>";	
   }
 }
+
+$json = file_get_contents("response.json");
+
+var_dump(json_decode($json));
 ?>
