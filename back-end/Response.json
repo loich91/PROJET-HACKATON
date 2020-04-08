@@ -5,10 +5,10 @@
 			"date": "05/04/2020"
 		}
 	},
-	"Foire aux questions": [
+	"quizz": [
 
 		{
-			"question": "1. Avec quoi puis je désinfecter les pattes de mon chien après sa promenade ?",
+			"ask": "1. Avec quoi puis je désinfecter les pattes de mon chien après sa promenade ?",
 			"answer1": "a) Avec de la javel ou du gel hydroalcoolique",
 			"answer2": "b) Avec du savon et puis rincer à l’eau",
 			"response": "answer1"
