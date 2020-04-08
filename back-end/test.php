@@ -1,11 +1,8 @@
 <?php
-$question[0]="John F. Kennedy à été |Un ami personnel de Fidel Castro|Le leader de la révolution américaine|Assassiné en 1963 par Jack Ruby|Assassiné à Dallas en 1963";
-$question[1]="Quel président américain fut assassiné en 1865?|Abraham Lincoln|George Washington|Richard Nixon|Andrew Johnson";
-$question[2]="Il s'est lui-même fait nommer président à vie d’Haïti. C'est son fils Jean-Claude qui lui a succédé en 1971?|P.E. Trudeau|Richard Hatfield|François Duvalier|Ernesto « Che » Guevara";
+$question[1]="1. Avec quoi puis je désinfecter les pattes de mon chien après sa promenade ?|a) Avec de la javel ou du gel hydroalcoolique|b) Avec du savon et puis rincer à l’eau";
 
-$reponseq[0]="Assassiné à Dallas en 1963";
-$reponseq[1]="Abraham Lincoln";
-$reponseq[2]="François Duvalier";
+$reponseq[0]="Avec de la javel ou du gel hydroalcoolique";
+$reponseq[1]="Avec du savon et puis rincer à l’eau";
 
 $note = 0;
 if (isset($_POST['nb'])) 
@@ -17,30 +14,30 @@ else
     $nb=0; 
 }
 
-if (isset($_POST['reponse'])) 
+if (isset($_POST['reponseq'])) 
 { 
-    $reponse[0]=$_POST['reponse'].$_POST['rep']."," ; 
+    $reponseq[0]=$_POST['reponseq'].$_POST['rep']."," ; 
 }
 else
 { 
-    $reponse[0]=""; 
+    $reponseq[0]=""; 
 }
 
 if ($nb < count($question))
 {
  ?>
  <form name="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
- <?php 
- $laqueston=explode("|",$question[$nb]);
- echo $laqueston[0]."<br><br>"; 
- for ($nbr_rep=1; $nbr_rep < count($laqueston); $nbr_rep++)
+ <?php  
+ $question=explode("|",$question[$nb]);
+ echo $question[0]."<br><br>"; 
+ for ($nbr_rep=1; $nbr_rep < count($question); $nbr_rep++)
 {
  	?>
- 	<input type="radio" name="rep" value="<?php echo $nbr_rep; ?>" <?php if ($nbr_rep==1) echo "checked"; ?>><?php echo $laqueston[$nbr_rep]."<br>"; 
+ 	<input type="radio" name="rep" value="<?php echo $nbr_rep; ?>" <?php if ($nbr_rep==1) echo "checked"; ?>><?php echo $question[$nbr_rep]."<br>"; 
 }
  ?>
  <br>
- <input type="hidden" name="reponse" value="<?php echo $reponse[0]; ?>">
+ <input type="hidden" name="reponseq" value="<?php echo $reponseq[0]; ?>">
  <input type="hidden" name="nb" value="<?php echo $nb+1; ?>"> 
  <input type="submit" name="envoyer" value="Envoyer"><br> 
  </form>
@@ -48,14 +45,14 @@ if ($nb < count($question))
 }
 else
 {
-$rep=explode(",", $reponse[0]);
+$rep=explode(",", $reponseq[0]);
  echo "Terminer<br><br>";
   
-  for ($i=0; $i <= count($reponse)+1; $i++)
+  for ($i=0; $i < count($reponseq); $i++)
   {   
     
-    $laqueston=explode("|",$question[$i]);
-    echo "A la question " . $note . ": <font color=\"FF0000\"> " . $laqueston[0] . "</font><br> Vous avez répondu  " . $laqueston[$rep[$i]] . "<br> Reponse :"  . $reponseq[$i] . "<br><br>";	
+    $question=explode("|",$question[$i]);
+    echo "A la question " . $note . ": <font color=\"FF0000\"> " . $question[0] . "</font><br> Vous avez répondu  " . $question[$rep[$i]] . "<br> reponseq :"  . $reponseq[$i] . "<br><br>";	
   }
 }
 
