@@ -1,7 +1,8 @@
-ask=document.getElementById("ask").innerHTML="1.Avec quoi puis je désinfecter les pattes de mon chien après sa promenade ?"
+//ask=document.getElementById("ask").innerHTML="1.Avec quoi puis je désinfecter les pattes de mon chien après sa promenade ?"
 answer1=document.getElementById("answer1");
 answer2=document.getElementById("answer2");
 messageElement = document.querySelector("#message");
+ask=document.getElementById('ask');
 
 reponseU='';
 reponseJuste='b';
@@ -13,12 +14,17 @@ answer2.innerHTML="b)Avec du savon et puis rincer à l’eau";
 
 
 
+axios.get('http://127.0.0.1/back-end/index.php')
+  .then(req_response=> {
+      console.log(req_response.data.ask)
+    ask=document.getElementById('ask').innerHTML=req_response.data.ask
+  })
 
-fetch('http://127.0.0.1/back-end/index.php')
-    .then(ask => ask,
-        ask=document.getElementById("ask").innerHTML=ask
-        
-        )
+// fetch('http://127.0.0.1/back-end/index.php')
+//     .then(response =>{
+//         ask.innerHTML=response.data.ask;
+//     }
+//         )
 
 
 

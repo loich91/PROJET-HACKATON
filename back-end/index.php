@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
-</head>
-<body>
+
 <?php
+
+//header de la réponse (pour éviter les problèmes de CORS)
+header("Access-Control-Allow-Origin: *");  
+header("Content-Type: application/json; charset=UTF-8"); 
+header("HTTP/1.1 200 OK");
 
 // indiqué le chemin de votre fichier JSON, il peut s'agir d'une URL
 $json = file_get_contents("response.json");
@@ -15,16 +13,17 @@ $json = file_get_contents("response.json");
 
 $parsed_json = json_decode($json);
 //var_dump(json_decode($json ));
-var_dump ($parsed_json);
+
 $ask = $parsed_json->{'quizz'}[0]->{'ask'};
-$answer1 = $parsed_json->{'quizz'}[0]->{'ask'};
-$answer2 = $parsed_json->{'quizz'}[0]->{'ask'};
-echo $ask ;
-echo $answer1;
-echo $answer2  ;
-?>
+$answer1 = $parsed_json->{'quizz'}[0]->{'answer1'};
+$answer2 = $parsed_json->{'quizz'}[0]->{'answer2'};
+$reponse= $parsed_json->{'quizz'}[0]->{'reponse'};
 
-</body>
-</html>
-
-
+$data=[
+    "ask"       =>  $ask,
+    "answer1"   =>  $answer1,
+    "answer2"   =>  $answer2,
+    "reponse"   =>  $reponse];
+$req_response=json_encode($data);
+	
+echo $req_response;
